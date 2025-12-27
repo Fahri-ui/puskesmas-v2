@@ -13,6 +13,13 @@ return new class extends Migration
     {
         Schema::create('layanans', function (Blueprint $table) {
             $table->id();
+            $table->string('nama')->unique();
+            $table->string('slug')->unique();
+            $table->text('deskripsi')->nullable();
+            $table->string('icon')->nullable();
+            $table->boolean('aktif')->default(true);
+            $table->integer('urutan')->default(0);
+            $table->softDeletes();
             $table->timestamps();
         });
     }
